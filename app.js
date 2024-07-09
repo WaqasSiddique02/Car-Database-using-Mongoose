@@ -63,16 +63,16 @@ Car.find({})
     console.error(err);
 });
 
-// Car.updateOne(
-//     { _id: '668cf4d28dd7a29e5bb27b45' },  
-//     { $set: { name: 'BMW SR1000' } }     
-// )
-// .then(function(result){
-//     console.log("Successful");
-// })
-// .catch(function(err){
-//     console.error(err);
-// });
+Car.updateOne(
+    { _id: '668cf4d28dd7a29e5bb27b45' },  
+    { $set: { name: 'BMW SR1000' } }     
+)
+.then(function(result){
+    console.log("Successful");
+})
+.catch(function(err){
+    console.error(err);
+});
 
 
 Car.deleteOne({rating:5})
