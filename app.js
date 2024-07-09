@@ -36,3 +36,23 @@ const h2r=new Car({
 //     console.error(err);
 //   });
 
+
+
+// Car.find({})
+// .then(function(docs) {
+//     console.log(docs);
+// })
+// .catch(function(err){
+//     console.error(err);
+// });
+
+Car.find({})
+.then(function (docs) {
+    mongoose.connection.close();
+    docs.forEach(function(cars){
+        console.log(cars.name);
+    })
+})
+.catch(function (err) {
+    console.error(err);
+});
