@@ -3,30 +3,37 @@ mongoose.connect("mongodb://localhost:27017/carsDB");
 const Schema= mongoose.Schema;
 
 const carSchema=new Schema({
-    name: String,
-    rating: Number,
+    name: {
+        type: String,
+        required:[true,'No name found']
+    },
+    rating: {
+        type: Number,
+        min: 1,
+        max: 5
+    },
     review: String
 });
 
 const Car =mongoose.model("Car",carSchema);
 
-const car =new Car({
-    name:"Mehran",
-    rating: 4,
-    review: "Good car"
-});
+// const car =new Car({
+//     name:"Mehran",
+//     rating: 4,
+//     review: "Good car"
+// });
 
-const corolla =new Car ({
-    name:"Corolla",
-    rating: 4.5,
-    review: "Good car"
-});
+// const corolla =new Car ({
+//     name:"Corolla",
+//     rating: 4.5,
+//     review: "Good car"
+// });
 
-const h2r=new Car({
-    name:"H2R",
-    rating: 5,
-    review: "Good Bike"
-});
+// const h2r=new Car({
+//     name:"H2R",
+//     rating: 5,
+//     review: "Good Bike"
+// });
 
 // Car.insertMany([corolla, h2r])
 //   .then(function(docs) {
@@ -35,7 +42,6 @@ const h2r=new Car({
 //   .catch(function(err) {
 //     console.error(err);
 //   });
-
 
 
 // Car.find({})
